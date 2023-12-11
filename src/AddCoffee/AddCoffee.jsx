@@ -1,4 +1,4 @@
-
+import Swal from 'sweetalert2'
 
 const AddCoffee = () => {
 
@@ -28,10 +28,25 @@ const AddCoffee = () => {
             .then(res => res.json())
             .then(data => {
               console.log(data);
+              if(data.insertedId){
+                Swal.fire({
+                    title: 'success',
+                    text: 'user added successful',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                  })
+              }
             })
             .catch(error => {
-              console.error('Error:', error);
+                console.error('Error:', error);
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Something went wrong. Please try again later.',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                });
             });
+            
         }
 
 
