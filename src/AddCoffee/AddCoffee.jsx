@@ -54,7 +54,7 @@ const AddCoffee = () => {
     return (
         <div className="w-96 md:w-[600px]  lg:w-[940px] mb-24 p-4 h-full lg:flex lg:justify-center">
             <div>
-               <Link to={'/'}>Back</Link>
+               <Link className="btn btn-secondary flex justify-center" to={'/'}>Back</Link>
             </div>
 
             <form onSubmit={handlerAddCoffee} className="mt-24 bg-slate-200 form-control">
