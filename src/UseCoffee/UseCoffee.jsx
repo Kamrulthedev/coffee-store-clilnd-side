@@ -1,11 +1,11 @@
-
+import PropTypes from 'prop-types'; // ES6
 
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
 const UseCoffee = ({ useCoffee, setCoffee, coffees }) => {
-    const { _id, name, supplier, category, chef, taste, details, photo } = useCoffee;
+    const { _id, name, supplier, chef, taste,  photo } = useCoffee;
 
     const handlerDelete = _id => {
         console.log(_id)
@@ -72,6 +72,20 @@ const UseCoffee = ({ useCoffee, setCoffee, coffees }) => {
             </div>
         </div>
     );
+};
+UseCoffee.propTypes = {
+    useCoffee: PropTypes.shape({
+        _id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        supplier: PropTypes.string.isRequired,
+        category: PropTypes.string.isRequired,
+        chef: PropTypes.string.isRequired,
+        taste: PropTypes.string.isRequired,
+        details: PropTypes.string.isRequired,
+        photo: PropTypes.string.isRequired,
+    }).isRequired,
+    setCoffee: PropTypes.func.isRequired,
+    coffees: PropTypes.array.isRequired,
 };
 
 export default UseCoffee;
