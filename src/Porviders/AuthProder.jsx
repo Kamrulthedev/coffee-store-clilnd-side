@@ -5,21 +5,21 @@ import PropTypes from 'prop-types'; // ES6
 
 export const AuthContext = createContext(null)
 
-const AuthProder = ({children}) => {
-const [user, setUser] = useState(null)
-const [Loding, setLoding] = useState(true)
+const AuthProder = ({ children }) => {
+    const [user, setUser] = useState(null)
+    const [Loding, setLoding] = useState(true)
 
-const createUser = (email, password) =>{
-    setLoding(true)
-  return createUserWithEmailAndPassword(auth, email, password)
+    const createUser = (email, password) => {
+        setLoding(true)
+        return createUserWithEmailAndPassword(auth, email, password)
 
-}
+    }
 
 
     const useInfo = {
-            user,
-            Loding,
-            createUser
+        user,
+        Loding,
+        createUser
     }
 
     return (

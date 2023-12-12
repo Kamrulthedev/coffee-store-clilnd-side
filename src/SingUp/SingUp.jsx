@@ -9,19 +9,19 @@ const SingUp = () => {
 
 
 
-  const hadlerSingUp = e =>{
+  const hadlerSingUp = e => {
     e.preventDefault();
     const from = e.target;
     const email = from.email.value;
     const password = from.password.value;
     console.log(email, password)
     createUser(email, password)
-    .then(result =>{
-      console.log(result.user)
-    })
-    .then(error =>{
-      console.log(error.messages)
-    })
+      .then(result => {
+        console.log(result.user)
+      })
+      .then(error => {
+        console.log(error.messages)
+      })
   }
 
   return (
