@@ -9,6 +9,8 @@ import {
 import AddCoffee from './AddCoffee/AddCoffee.jsx';
 import UpdateCoffee from './UpdateCoffee/UpdateCoffee.jsx';
 import UseCoffee from './UseCoffee/UseCoffee.jsx';
+import SingUp from './SingUp/SingUp.jsx';
+import SingIn from './SingIn/SingIn.jsx';
 
 
 const router = createBrowserRouter([
@@ -29,6 +31,14 @@ const router = createBrowserRouter([
   {
     path:'/useCoffee',
     element:<UseCoffee></UseCoffee>
+  },
+  {
+    path:'/singup',
+    element:<SingUp></SingUp>
+  },
+  {
+    path:'/singIn',
+    element:<SingIn></SingIn>
   }
 ]);
 
