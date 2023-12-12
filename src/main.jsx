@@ -11,6 +11,7 @@ import UpdateCoffee from './UpdateCoffee/UpdateCoffee.jsx';
 import UseCoffee from './UseCoffee/UseCoffee.jsx';
 import SingUp from './SingUp/SingUp.jsx';
 import SingIn from './SingIn/SingIn.jsx';
+import AuthProder from './Porviders/AuthProder.jsx';
 
 
 const router = createBrowserRouter([
@@ -44,6 +45,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+   <AuthProder>
+   <RouterProvider router={router} />
+   </AuthProder>
   </React.StrictMode>,
 )
