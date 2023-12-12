@@ -17,11 +17,28 @@ const SingUp = () => {
     console.log(email, password)
     createUser(email, password)
       .then(result => {
-        console.log(result.user)
+        console.log(result.user);
+        // new user has been created
+        const userAt = result.user ?.metadata.creationTime;
+        const user = { email, userAt };
+        fetch('http://localhost:5000/user', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(user)
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+          })
+          .catch(error => {
+            console.error('Error saving user information:', error);
+          });
       })
-      .then(error => {
-        console.log(error.messages)
-      })
+      .catch(error => {
+        console.error('Error creating user:', error.message);
+      });
   }
 
   return (

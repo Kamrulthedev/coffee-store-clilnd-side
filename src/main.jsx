@@ -12,6 +12,7 @@ import UseCoffee from './UseCoffee/UseCoffee.jsx';
 import SingUp from './SingUp/SingUp.jsx';
 import SingIn from './SingIn/SingIn.jsx';
 import AuthProder from './Porviders/AuthProder.jsx';
+import Users from './Users/Users.jsx';
 
 
 const router = createBrowserRouter([
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
   {
     path:'/singIn',
     element:<SingIn></SingIn>
+  },
+  {
+    path:'/users',
+    element:<Users></Users>
   }
 ]);
 
