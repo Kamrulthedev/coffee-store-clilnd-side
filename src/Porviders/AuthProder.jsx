@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 import auth from "../firbaes/firbase.config";
 import PropTypes from 'prop-types'; // ES6
 
-const AuthContext = createContext(null)
+export const AuthContext = createContext(null)
 
 const AuthProder = ({children}) => {
 const [user, setUser] = useState(null)

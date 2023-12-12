@@ -1,7 +1,13 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Porviders/AuthProder";
 
 
 const SingUp = () => {
+
+  const { createUser } = useContext(AuthContext)
+
+
 
   const hadlerSingUp = e =>{
     e.preventDefault();
@@ -9,6 +15,13 @@ const SingUp = () => {
     const email = from.email.value;
     const password = from.password.value;
     console.log(email, password)
+    createUser(email, password)
+    .then(result =>{
+      console.log(result.user)
+    })
+    .then(error =>{
+      console.log(error.messages)
+    })
   }
 
   return (
