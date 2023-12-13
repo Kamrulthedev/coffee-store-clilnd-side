@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { createContext, useState } from "react";
 import auth from "../firbaes/firbase.config";
 import PropTypes from 'prop-types'; // ES6
@@ -14,12 +14,17 @@ const AuthProder = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password)
 
     }
+    const SingInUser = (email, password) =>{
+        setLoding(true)
+        return signInWithEmailAndPassword(auth, email, password)
+    }
 
 
     const useInfo = {
         user,
         Loding,
-        createUser
+        createUser,
+        SingInUser
     }
 
     return (
