@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Porviders/AuthProder";
+import Swal from "sweetalert2";
 
 
 const SingUp = () => {
@@ -19,7 +20,7 @@ const SingUp = () => {
       .then(result => {
         console.log(result.user);
         // new user has been created
-        const userAt = result.user ?.metadata.creationTime;
+        const userAt = result.user?.metadata.creationTime;
         const user = { email, userAt };
         fetch('http://localhost:5000/user', {
           method: 'POST',
@@ -31,13 +32,28 @@ const SingUp = () => {
           .then(res => res.json())
           .then(data => {
             console.log(data);
+            if (data.insertedId) {
+              Swal.fire({
+                title: 'success',
+                text: 'Users Added successful',
+                icon: 'success',
+                confirmButtonText: 'OK'
+              })
+            }
           })
           .catch(error => {
             console.error('Error saving user information:', error);
+
           });
       })
       .catch(error => {
-        console.error('Error creating user:', error.message);
+        console.error('Error:', error);
+        Swal.fire({
+          title: 'Error',
+          text: 'Something went wrong. Please try again later.',
+          icon: 'error',
+          confirmButtonText: 'Ok'
+        });
       });
   }
 
