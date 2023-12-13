@@ -71,7 +71,7 @@ const Users = () => {
                                         <th>1</th>
                                         <td>{user.email}</td>
                                         <td>{user.userAt}</td>
-                                        <th></th>
+                                        <th>{user.lastLoggedAt}</th>
 
                                         <td>
                                             <button onClick={() => handlerDelete(user._id)} className="btn btn-xs bg-lime-500">X</button>

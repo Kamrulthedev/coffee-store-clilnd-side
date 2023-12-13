@@ -14,10 +14,10 @@ const AuthProder = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password)
 
     }
-    const SingInUser = (email, password) =>{
-        setLoding(true)
-        return signInWithEmailAndPassword(auth, email, password)
-    }
+    const SingInUser = (email, password) => {
+        return signInWithEmailAndPassword(auth , email, password);
+      };
+      
 
 
     const useInfo = {
