@@ -15,14 +15,19 @@ const SingUp = () => {
     const from = e.target;
     const email = from.email.value;
     const password = from.password.value;
-    console.log(email, password)
+ 
+
+
+    // create user Login
     createUser(email, password)
       .then(result => {
         console.log(result.user);
+
+
         // new user has been created
         const userAt = result.user?.metadata.creationTime;
         const user = { email, userAt };
-        fetch('http://localhost:5000/user', {
+        fetch('https://coffee-store-server-six-lake.vercel.app/user', {
           method: 'POST',
           headers: {
             'content-type': 'application/json'

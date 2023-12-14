@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Porviders/AuthProder";
+import Swal from "sweetalert2";
 
 
 const SingIn = () => {
@@ -20,7 +21,7 @@ const SingIn = () => {
           lastLoggedAt: result.user?.metadata?.lastSignInTime
         }
         // update last logged at in the database
-        fetch('http://localhost:5000/user', {
+        fetch('https://coffee-store-server-six-lake.vercel.app/user', {
           method:'PATCH', headers:{
             'content-type':'application/json'
           },
@@ -29,6 +30,14 @@ const SingIn = () => {
         .then(res => res.json())
         .then(data =>{
           console.log(data)
+          if(data.modifiedCount){
+            Swal.fire({
+                title: 'success',
+                text: 'Sing In successful',
+                icon: 'success',
+                confirmButtonText: 'OK'
+              })
+          }
         })
       })
       .catch(error => {

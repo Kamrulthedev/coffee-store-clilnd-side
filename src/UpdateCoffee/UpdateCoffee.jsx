@@ -21,8 +21,8 @@ const UpdateCoffee = () => {
 
       
 
-          // send data to the server side
-          fetch(`http://localhost:5000/coffee/${_id}`, {
+          // send data to the server sidefirebase 
+          fetch(`https://coffee-store-server-six-lake.vercel.app/coffee/${_id}`, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',

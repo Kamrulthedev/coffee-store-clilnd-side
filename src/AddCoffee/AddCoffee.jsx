@@ -7,6 +7,7 @@ const AddCoffee = () => {
     const handlerAddCoffee = (e) => {
         e.preventDefault();
         const form = e.target;
+        const formData = new FormData(form);
         const name = form.name.value;
         const supplier = form.supplier.value;
         const category = form.category.value;
@@ -19,12 +20,13 @@ const AddCoffee = () => {
       
 
           // send data to the server side
-          fetch('http://localhost:5000/coffee', {
+          fetch('https://coffee-store-server-six-lake.vercel.app/coffee', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify(userInfo),
+            body: JSON.stringify(userInfo, formData),
+            
           })
             .then(res => res.json())
             .then(data => {
